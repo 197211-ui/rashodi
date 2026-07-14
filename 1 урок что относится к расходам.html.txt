@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Классификация расходов</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #f5f9ff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .table-wrapper {
+            max-width: 950px;
+            width: 100%;
+            background: rgba(235, 246, 255, 0.35);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(150, 195, 235, 0.08);
+            padding: 28px 28px 20px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(200, 225, 250, 0.25);
+        }
+
+        .custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 16px;
+            line-height: 1.6;
+            background-color: rgba(240, 248, 255, 0.25);
+            border: 1px solid rgba(200, 225, 248, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Шапка — тоже плашки */
+        .custom-table th {
+            padding: 14px 22px;
+            text-align: left;
+            border-bottom: 2px solid rgba(190, 218, 245, 0.35);
+            font-size: 17px;
+            letter-spacing: 0.2px;
+            background: transparent;
+        }
+
+        .custom-table th .header-card {
+            background: white;
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 2px 12px rgba(0, 20, 50, 0.04);
+            border: 1px solid #e4edf6;
+            color: #2c4a6e;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .custom-table th .header-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 20, 50, 0.06);
+            border-color: #b8d0e8;
+        }
+
+        .custom-table td {
+            padding: 16px 22px;
+            vertical-align: top;
+            background-color: rgba(240, 248, 255, 0.12);
+            color: #2a4a6a;
+            border-bottom: 1px solid rgba(190, 218, 245, 0.20);
+        }
+
+        .custom-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .custom-table td:first-child {
+            border-right: 1px solid rgba(190, 218, 245, 0.20);
+        }
+
+        /* Плашки-карточки для пунктов */
+        .card-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .card-list li {
+            background: white;
+            border-radius: 12px;
+            padding: 14px 18px;
+            box-shadow: 0 2px 12px rgba(0, 20, 50, 0.04);
+            border: 1px solid #e4edf6;
+            color: #1f3853;
+            font-size: 15px;
+            line-height: 1.5;
+            transition: all 0.2s ease;
+        }
+
+        .card-list li:hover {
+            box-shadow: 0 4px 20px rgba(0, 20, 50, 0.06);
+            border-color: #b8d0e8;
+        }
+
+        @media (max-width: 600px) {
+            .table-wrapper {
+                padding: 16px;
+                background: rgba(235, 246, 255, 0.20);
+            }
+            .custom-table th,
+            .custom-table td {
+                padding: 12px 16px;
+                font-size: 15px;
+                display: block;
+                width: 100%;
+                border-right: none !important;
+                border-bottom: 1px solid rgba(190, 218, 245, 0.20);
+            }
+            .custom-table tr {
+                display: block;
+                margin-bottom: 6px;
+            }
+            .custom-table td:first-child {
+                border-right: none;
+            }
+            .custom-table th {
+                display: none;
+            }
+            .custom-table td:first-child::before {
+                content: "К расходам относятся";
+                font-weight: 600;
+                display: block;
+                margin-bottom: 10px;
+                color: #2c4a6e;
+            }
+            .custom-table td:last-child::before {
+                content: "Не признаются расходами";
+                font-weight: 600;
+                display: block;
+                margin-bottom: 10px;
+                color: #2c4a6e;
+            }
+            .card-list li {
+                font-size: 14px;
+                padding: 12px 14px;
+            }
+            .custom-table th .header-card {
+                padding: 10px 16px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="table-wrapper">
+    <table class="custom-table">
+        <thead>
+            <tr>
+                <th>
+                    <div class="header-card">К расходам относятся</div>
+                </th>
+                <th>
+                    <div class="header-card">Не признаются расходами</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <ul class="card-list">
+                        <li>Выбытие активов — например, списание материалов в производство, реализация товаров, продажа основных средств.</li>
+                        <li>Возникновение обязательств — начисление заработной платы, налогов, штрафов, судебных издержек.</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul class="card-list">
+                        <li>Капитальные вложения — приобретение, создание или модернизация основных средств и нематериальных активов.</li>
+                        <li>Финансовые вложения — покупка акций, облигаций, предоставление займов.</li>
+                        <li>Формирование производственных запасов — покупка сырья, товаров для перепродажи.</li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
